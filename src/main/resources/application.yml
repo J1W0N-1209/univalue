@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: "univalue"
+
+  servlet:
+    multipart:
+      max-file-size: 1GB
+      max-request-size: 1GB
+
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/univalue
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  save:
+    dir: ${SAVE_DIR}
+
+auth:
+  google:
+    base-url: ${GOOGLE_BASE_URL}
+    client-id: ${GOOGLE_CLIENT}
+    redirect-url: ${GOOGLE_REDIRECT}
+
+jwt:
+  access-time: 3600000 # 1??
+  refresh-time: 2592000000 # 30?
+  prefix: Bearer
+  header: Authorization
+  secret-key: ${JWT_SECRET}
